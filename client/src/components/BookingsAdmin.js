@@ -2,12 +2,11 @@ import React from 'react';
 import TabsAdmin from './TabsAdmin';
 import Card from 'react-bootstrap/Card';
 
-const BookingsAdmin = ({ bookings }) => {
+const BookingsAdmin = ({ bookings, deleteBooking }) => {
   const [data, setData] = React.useState({
     active: [],
     expired: [],
   });
-  const deleteBooking = () => console.log('hello');
   React.useEffect(() => {
     bookings = bookings.sort();
     console.log('Runnings');

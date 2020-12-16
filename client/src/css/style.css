@@ -2257,3 +2257,15 @@ header {
   display: flex;
   justify-content: space-between;
 }
+
+.list-item-phone {
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.list-item-phone:last-child {
+  margin-bottom: 10px;
+}

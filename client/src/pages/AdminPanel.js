@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 import BookingsAdmin from '../components/BookingsAdmin';
 
 const AdminPanel = (props) => {
@@ -16,7 +14,7 @@ const AdminPanel = (props) => {
     }
     async function fetchData() {
       try {
-        const res = await axios.get('/api/booking');
+        const res = await axios.get('/api/booking/get/all');
         console.log(res.data);
         setBooking(res.data);
       } catch (err) {
@@ -26,6 +24,7 @@ const AdminPanel = (props) => {
           localStorage.clear();
           return props.history.push('/admin/login');
         }
+        console.log('errr in bookin');
         alert(err.response.data.err);
       }
     }
@@ -34,7 +33,7 @@ const AdminPanel = (props) => {
   const deleteBooking = async (id) => {
     if (
       !window.confirm(
-        'Are you sure ys irrou want to delete the booking, Action ievesible'
+        'Are you sure you want to delete the booking, Action irreversible'
       )
     )
       return;
@@ -53,7 +52,9 @@ const AdminPanel = (props) => {
       <h3 className='my-4 text-center'>Manage Phones</h3>
       <div className='btn-actions'>
         {' '}
-        <button className='btn btn-primary'>List All Phones</button>
+        <Link to='/admin/list'>
+          <button className='btn btn-primary'>List All Phones</button>
+        </Link>
         <Link to='/admin/new'>
           <button className='btn btn-dark'>Add Phone</button>
         </Link>
@@ -61,7 +62,7 @@ const AdminPanel = (props) => {
 
       <hr />
       <h3 className='my-4 text-center'>Bookings </h3>
-      <BookingsAdmin bookings={booking} />
+      <BookingsAdmin bookings={booking} deleteBooking={deleteBooking} />
     </div>
   );
 };

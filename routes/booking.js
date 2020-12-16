@@ -54,10 +54,12 @@ router.post(
   }
 );
 
-router.get('/', auth, async (req, res) => {
+router.get('/get/all', auth, async (req, res) => {
+  console.log('request received');
   try {
     const booking = await Booking.find();
-    res.json(booking);
+    console.log(booking);
+    res.send(booking);
   } catch (err) {
     console.log(err);
     res.status(500).json({ err: 'Internal Server Error' });

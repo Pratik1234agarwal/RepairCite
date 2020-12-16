@@ -29,7 +29,7 @@ const Pincode = (props) => {
   };
   return (
     <div className='main-content container'>
-      <h3>Enter Your Pincode</h3>
+      <h3>Enter Your Zip Code</h3>
       <div className='content-per-line'>
         <input
           value={pincode}

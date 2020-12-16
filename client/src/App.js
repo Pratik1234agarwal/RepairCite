@@ -11,6 +11,8 @@ import AdminLogin from './pages/AdminLogin';
 import AdminPanel from './pages/AdminPanel';
 import Bookings from './pages/Bookings';
 import AddPhone from './pages/AddPhone';
+import PhoneList from './pages/PhoneList';
+import EditPhone from './pages/EditPhone';
 
 import * as bs from './css/bootstrap.min.css';
 import './css/style.css';
@@ -25,6 +27,8 @@ function App() {
         <Route path='/admin/login' component={AdminLogin} />
         <Route path='/admin/panel' component={AdminPanel} />
         <Route path='/admin/new' component={AddPhone} />
+        <Route path='/admin/list' component={PhoneList} />
+        <Route path='/admin/edit/:id' component={EditPhone} />
         <Redirect to='/' />
       </Switch>
     </Router>

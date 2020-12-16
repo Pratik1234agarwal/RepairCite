@@ -4,14 +4,6 @@ import Form from 'react-bootstrap/Form';
 import Loader from '../components/Loader';
 
 const AddPhone = (props) => {
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      return props.history.push('/admin/login');
-    } else {
-      axios.defaults.headers.common['x-auth-token'] = token;
-    }
-  }, []);
   const [formData, setFormData] = useState({
     name: '',
     code: '',
@@ -19,6 +11,31 @@ const AddPhone = (props) => {
     charging: '',
     screen: '',
   });
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return props.history.push('/admin/login');
+    } else {
+      axios.defaults.headers.common['x-auth-token'] = token;
+    }
+    const id = props.match.params.id;
+    async function fetchData() {
+      try {
+        const res = await axios.get(`/api/${id}`);
+        console.log(res.data);
+        setFormData(res.data);
+        setColorField(res.data.color);
+      } catch (err) {
+        if (err.response.status === 401) {
+          alert('Login session expired');
+          return props.history.push('/admin/login');
+        }
+        alert(err.response.data.err);
+      }
+    }
+    fetchData();
+  }, [setFormData]);
+
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -35,13 +52,12 @@ const AddPhone = (props) => {
         return alert('Please Enter the Price for repair');
     }
     try {
-      const res = await axios.post('/auth/create', {
-        ...formData,
-        color: colorField,
+      const res = await axios.post(`/api/edit/${props.match.params.id}`, {
+        phone: { ...formData, color: colorField },
       });
       console.log(res);
       setLoading(false);
-      alert('Phone Has been Added');
+      alert('Phone Has been Edited');
     } catch (err) {
       if (err.response.status === 401) {
         localStorage.clear();
@@ -49,6 +65,26 @@ const AddPhone = (props) => {
         return props.history.push('/admin/login');
       }
       alert(err.response.data.err);
+      setLoading(false);
+    }
+  };
+  const deletePhone = async () => {
+    if (
+      !window.confirm(
+        'Are you sure you want to delete this Phone, Process is irreversible'
+      )
+    ) {
+      return;
+    }
+    try {
+      const res = await axios.delete(`/api/${props.match.params.id}`);
+      alert('Phone Deleted');
+      props.history.push('/admin/list');
+    } catch (err) {
+      if (err.response.status === 401) {
+        alert('Session timed out');
+        return props.history.push('/admin/login');
+      }
     }
   };
   const [colorField, setColorField] = useState([
@@ -79,6 +115,7 @@ const AddPhone = (props) => {
         <Form.Group controlId='formBasicEmail'>
           <Form.Label>Add Phone Name</Form.Label>
           <Form.Control
+            disabled
             name='name'
             value={formData.name}
             type='text'
@@ -90,6 +127,7 @@ const AddPhone = (props) => {
         <Form.Group controlId='formBasicPassword'>
           <Form.Label>Add Phone Code</Form.Label>
           <Form.Control
+            disabled
             name='code'
             value={formData.code}
             type='text'
@@ -118,12 +156,12 @@ const AddPhone = (props) => {
             />
           </div>
           <div className='col'>
-            <Form.Label>Battery Replacement</Form.Label>
+            <Form.Label>Battery fix</Form.Label>
             <Form.Control
               name='battery'
               value={formData.battery}
-              placeholder='Enter price in $'
               onChange={onChange}
+              placeholder='Enter price in $'
             />
           </div>
         </div>
@@ -163,6 +201,9 @@ const AddPhone = (props) => {
 
         <button onClick={onSubmit} className='btn btn-primary mt-5'>
           Submit
+        </button>
+        <button onClick={deletePhone} className='btn btn-danger mt-5 ml-3'>
+          Delete
         </button>
       </>
     </div>

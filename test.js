@@ -1,5 +1,6 @@
 const Phone = require('./models/Phones');
 const connectDB = require('./config/db');
+const Booking = require('./models/Booking');
 connectDB();
 
 const value = [
@@ -71,4 +72,8 @@ async function update() {
   });
 }
 
-setTimeout(update, 2000);
+setTimeout(test, 2000);
+
+async function test() {
+  console.log(await Booking.find());
+}
