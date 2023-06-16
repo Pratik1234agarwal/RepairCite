@@ -10,19 +10,21 @@ connectDB();
 
 const app = express();
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static("./client/build"));
 
 app.use("/auth", require("./routes/auth"));
 app.use("/api", require("./routes/api"));
 app.use("/api/booking", require("./routes/booking"));
 
+console.log(path.join(__dirname, "client", "build", "index.html"));
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
-app.get("/booking", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "booking.html"));
-});
+// app.get("/booking", (req, res) => {
+//   res.sendFile(path.join(__dirname, "public", "booking.html"));
+// });
 
 app.listen(PORT, () => {
   console.log("Listening to PORT : ", PORT);

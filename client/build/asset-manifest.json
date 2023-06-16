@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.8f01d564.chunk.css",
-    "main.js": "/static/js/main.1e02513f.chunk.js",
-    "main.js.map": "/static/js/main.1e02513f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.09b85ec0.js",
-    "runtime-main.js.map": "/static/js/runtime-main.09b85ec0.js.map",
-    "static/js/2.f09f73c8.chunk.js": "/static/js/2.f09f73c8.chunk.js",
-    "static/js/2.f09f73c8.chunk.js.map": "/static/js/2.f09f73c8.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.dc315a5ee27aab1aca15c46df922e2db.js": "/precache-manifest.dc315a5ee27aab1aca15c46df922e2db.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.8f01d564.chunk.css.map": "/static/css/main.8f01d564.chunk.css.map",
-    "static/js/2.f09f73c8.chunk.js.LICENSE.txt": "/static/js/2.f09f73c8.chunk.js.LICENSE.txt",
-    "static/media/pe-icon-7-stroke.css": "/static/media/Pe-icon-7-stroke.b38ef310.woff",
-    "static/media/Tick.png": "/static/media/Tick.2fdabc2c.png",
-    "static/media/charging.png": "/static/media/charging.4d2c1b88.png",
-    "static/media/style.css": "/static/media/landing-img.410d3b2c.jpg",
-    "static/media/repair.png": "/static/media/repair.1a8f6cdf.png",
-    "static/media/screen.jpg": "/static/media/screen.8c4f4d4b.jpg"
+    "main.css": "./static/css/main.68d20fcf.chunk.css",
+    "main.js": "./static/js/main.71d6846c.chunk.js",
+    "main.js.map": "./static/js/main.71d6846c.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.8b0ae790.js",
+    "runtime-main.js.map": "./static/js/runtime-main.8b0ae790.js.map",
+    "static/js/2.f09f73c8.chunk.js": "./static/js/2.f09f73c8.chunk.js",
+    "static/js/2.f09f73c8.chunk.js.map": "./static/js/2.f09f73c8.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.05df059d6ecee2f4831486672509bb3d.js": "./precache-manifest.05df059d6ecee2f4831486672509bb3d.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.68d20fcf.chunk.css.map": "./static/css/main.68d20fcf.chunk.css.map",
+    "static/js/2.f09f73c8.chunk.js.LICENSE.txt": "./static/js/2.f09f73c8.chunk.js.LICENSE.txt",
+    "static/media/pe-icon-7-stroke.css": "./static/media/Pe-icon-7-stroke.b38ef310.woff",
+    "static/media/Tick.png": "./static/media/Tick.2fdabc2c.png",
+    "static/media/charging.png": "./static/media/charging.4d2c1b88.png",
+    "static/media/style.css": "./static/media/landing-img.410d3b2c.jpg",
+    "static/media/repair.png": "./static/media/repair.1a8f6cdf.png",
+    "static/media/screen.jpg": "./static/media/screen.8c4f4d4b.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.09b85ec0.js",
+    "static/js/runtime-main.8b0ae790.js",
     "static/js/2.f09f73c8.chunk.js",
-    "static/css/main.8f01d564.chunk.css",
-    "static/js/main.1e02513f.chunk.js"
+    "static/css/main.68d20fcf.chunk.css",
+    "static/js/main.71d6846c.chunk.js"
   ]
 }
