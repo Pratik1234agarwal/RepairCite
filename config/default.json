@@ -1,5 +1,5 @@
 {
   "mongoURI": "mongodb://localhost/iphone",
-  "mongoURIAtlas": "mongodb+srv://admin:admin1234@repaircite.6h9zf.mongodb.net/repaircite?retryWrites=true&w=majority",
+  "mongoURIAtlas": "mongodb+srv://pratik1234iitkgp:pratik@iitkgp@repaircitecluster.fttxnws.mongodb.net/?retryWrites=true&w=majority",
   "jwtSecret": "Secret1234"
 }
